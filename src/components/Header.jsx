@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, Filter } from 'lucide-react'
+import { ShoppingCart, Search, Filter } from 'lucide-react'
 import { categories } from '../data/products'
 
 function Header({
@@ -37,38 +37,29 @@ function Header({
         </div>
         
         <div className="header-filters">
-          <div className="filter-group">
-            <Filter size={18} />
-            <label htmlFor="category">Category:</label>
-            <select
-              id="category"
-              value={selectedCategory}
-              onChange={(e) => onCategoryChange(e.target.value)}
-              className="filter-select"
-            >
-              {categories.map(category => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
+          <select 
+            className="filter-select"
+            value={selectedCategory}
+            onChange={(e) => onCategoryChange(e.target.value)}
+          >
+            {categories.map(category => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
           
-          <div className="filter-group">
-            <label htmlFor="sort">Sort by:</label>
-            <select
-              id="sort"
-              value={sortBy}
-              onChange={(e) => onSortChange(e.target.value)}
-              className="filter-select"
-            >
-              <option value="name">Name (A-Z)</option>
-              <option value="name-desc">Name (Z-A)</option>
-              <option value="price">Price (Low to High)</option>
-              <option value="price-desc">Price (High to Low)</option>
-              <option value="rating">Rating (High to Low)</option>
-            </select>
-          </div>
+          <select 
+            className="filter-select"
+            value={sortBy}
+            onChange={(e) => onSortChange(e.target.value)}
+          >
+            <option value="name">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="price">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+            <option value="rating">Rating (High to Low)</option>
+          </select>
         </div>
       </div>
     </header>
